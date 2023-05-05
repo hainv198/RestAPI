@@ -45,36 +45,38 @@ function wp2023_meta_box_product_html() {
 add_action( 'product_cat_add_form_fields', 'wp2023_meta_boxse_product_cat_add');
 
 // đăng kí thêm form edit cho taxonomy
-add_action( 'product_cat_edit_form_fields', 'wp2023_meta_boxse_product_cat_edit');
+add_action( 'product_cat_edit_form_fields', 'wp2023_meta_boxse_product_cat_edit',10,2);
 
 
 function wp2023_meta_boxse_product_cat_add() {
     include_once WP2023_PATH.'includes/templates/meta_box_product_cat_add.php';
 }
 
-function wp2023_meta_boxse_product_cat_edit() {
+function wp2023_meta_boxse_product_cat_edit($tag, $taxonomy) {
     include_once WP2023_PATH.'includes/templates/meta_box_product_cat_edit.php';
 }
 
 /* 
 Xử lý khi lưu term
 
+- do_active('create_<taxonomy_name>');
 - do_active('edit_<taxonomy_name>');
-- do_active('add_<taxonomy_name>');
 
 */
 
-add_action( 'product_cat_add','wp2023_meta_box_product_cat_save');
-add_action( 'product_cat_edit','wp2023_meta_box_product_cat_edit');
+add_action( 'create_product_cat','wp2023_meta_box_product_cat_save',10, 1);
+add_action( 'edit_product_cat','wp2023_meta_box_product_cat_save',10,1);
 
-function wp2023_meta_box_product_cat_save() {
-    echo '<pre>';
-    print_r($_POST);
-    die();
+function wp2023_meta_box_product_cat_save($term_id) {
+    // echo '<pre>';
+    // print_r($_POST);
+    // die();
+    $image = $_POST['image'];
+    update_term_meta($term_id, 'image', $image);
 }
 
-function wp2023_meta_box_product_cat_edit() {
-    echo '<pre>';
-    print_r($_POST);
-    die();
-}
+// function wp2023_meta_box_product_cat_edit() {
+//     echo '<pre>';
+//     print_r($_POST);
+//     die();
+// }

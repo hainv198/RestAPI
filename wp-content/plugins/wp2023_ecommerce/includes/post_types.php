@@ -5,10 +5,10 @@ add_action( 'init', 'wp2023_custom_post_type');
 function wp2023_custom_post_type() {
     /*
     Mặc định gồm có 
-    post: Bài viết
-    page: trang 
+    - post: Bài viết
+    - page: trang 
     - Giờ khai báo thêm mới post_types
-    product: sản phẩm
+      product: sản phẩm
 
     
      */
