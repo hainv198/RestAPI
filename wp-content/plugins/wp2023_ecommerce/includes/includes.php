@@ -17,3 +17,8 @@ include_once WP2023_PATH.'includes/admin_menus.php';
 // Làm việc với CSDL trong wordpress
 include_once WP2023_PATH.'includes/classes/wp2023_order.php';
 
+// xử lý ajax in php
+include_once WP2023_PATH.'includes/admin_ajax.php';
+
+//Tạo trang setting cho admin
+include_once WP2023_PATH.'includes/admin_settings.php';
