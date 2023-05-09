@@ -69,13 +69,16 @@ class wp2023_order {
 		return $item;
     }
 
+
     // save
     public function save($data) {
+
         global $wpdb;
         $wpdb->insert($this->_orders, $data);
         $lastId = $wpdb->insert_id;
         $item = $this->find($lastId);
         return $item;
+
     }
 
 

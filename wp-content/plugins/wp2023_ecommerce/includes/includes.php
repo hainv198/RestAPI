@@ -22,3 +22,6 @@ include_once WP2023_PATH.'includes/admin_ajax.php';
 
 //Tạo trang setting cho admin
 include_once WP2023_PATH.'includes/admin_settings.php';
+
+// Tạo api trong wp
+include_once WP2023_PATH.'includes/apis.php';
